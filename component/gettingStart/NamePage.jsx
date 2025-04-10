@@ -26,9 +26,10 @@ export default function NamePage() {
   return (
     <View style={styles.container}>
       <View style={styles.up}>
-        <Text style={[styles.text, styles.heading]}>
+        <Text className="" style={[styles.text, styles.heading]}>
           What should we call you?
         </Text>
+        <Text className="text-red-500 dark:text-white" >huiu</Text>
         <Text style={[styles.text, styles.title]}>
           It's always nice to be called by your name.
         </Text>

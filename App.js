@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigation/AppNavigator';
 import { GlobalLoaderProvider } from './hooks/GloabalLoader';
 import Loader from './component/common/Loader';
+import "./global.css"
 
 export default function App() {
   return (
