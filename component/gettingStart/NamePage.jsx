@@ -1,27 +1,35 @@
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { bgColor, ttColor } from '../../constants/Colors';
 import { Controller, useForm } from 'react-hook-form';
 import { useGlobalLoader } from '../../hooks/GloabalLoader';
+import { useProfileDataContext } from '../../hooks/ProfileData';
+import { useNavigation } from '@react-navigation/native';
 
 export default function NamePage() {
   const { control, handleSubmit, formState: { errors }, watch } = useForm();
   const watchedName = watch('username');
 
   const { show, hide, showLoading } = useGlobalLoader();
+  const {setUsername,username} = useProfileDataContext();
+
+  const navigate = useNavigation();
 
   const onSubmit = async data => {
   
 
     try {
       show()
-      console.log("Form Data:", data, showLoading);
+      setUsername(data.username);
+
       hide()
+      navigate.navigate("SetTime")
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Username:", error);
       hide(); 
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -29,7 +37,6 @@ export default function NamePage() {
         <Text className="" style={[styles.text, styles.heading]}>
           What should we call you?
         </Text>
-        <Text className="text-red-500 dark:text-white" >huiu</Text>
         <Text style={[styles.text, styles.title]}>
           It's always nice to be called by your name.
         </Text>

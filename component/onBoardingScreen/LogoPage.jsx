@@ -12,12 +12,12 @@ export default function LogoPage() {
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 0,
-        duration: 2000,
+        duration: 500,
         useNativeDriver: true,
       }),
       Animated.timing(scaleAnim, {
         toValue: 3,
-        duration: 3000,
+        duration: 500,
         useNativeDriver: true,
       }),
     ]).start();
